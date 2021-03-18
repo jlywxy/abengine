@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- 
+    abengine-demo
+    Version 1.3 (20210221)
+    Author: jlywxy
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    ABEngine 1.3(20210221) Demo<br>
+    作者：jlywxy<br>
+    <canvas id="canvas" width="500" height="200"></canvas><br>
+    <canvas id="canvas2" width="500" height="100"></canvas><br>
+    <script src="8bit.js"></script>
+    <script src="8bit-sequence.js"></script>
+    <script src="8bit-sheet.js"></script>
+    <script src="8bit-oscilloscope.js"></script>
+    <script>
+        //reduce oscilloscope animation if browser is safari on macos
+        var webkitsafari = (window.AudioContext == null)
+        if(webkitsafari)alert("use chrome for better performance. cannot show full animation on this browser.")
+
+        oscilloscope_init(canvas[0])
+        oscilloscope_init(canvas[1])
+    </script>
+    <button onclick="oscilloscope_init(canvas[0]);oscilloscope_init(canvas[1]);">清空示波器</button><br>
+    测试序列:<br>
+    <button onclick="play_sequence_4()">天狗舞踏会(foxtail-grass)</button><br><br><br>
+
+    <br><br><br>
+    <br><br><br>
+    
+
+
+
+
+
+
+
+
+
+
+    <button onclick="play_sequence_1()">Play AirBus Seatbelt Sound (Remastered)</button><br>
+    <button onclick="play_sequence_3()">Play Undertale Sans (Circulation)</button>
+    <br><br>
+    Tuning:<br>
+    <button onclick="playnote(sinenote,440,1)">Play Sinewave 440Hz</button>
+    <button onclick="playnote(trianglenote,440,1)">Play Triangle 440Hz</button>
+    <button onclick="playnote(sawtoothnote,440,1)">Play Sawtooth 440Hz</button>
+    <button onclick="playnote(squarewavenote,440,1)">Play Squarewave 440Hz</button>
+    <button onclick="playnote(rcpulsenote,440,1)">Play RC Oscillator Pulse Wave 440Hz</button>
+    <br><br>
+    Effects:<br>
+    <button onclick="playnote(sinenote_vibrato,440,5,1)">Play Sinewave Vibrato 440Hz,5Hz</button>
+    <button onclick="playnote(sawtoothnote_vibrato,440,5,1)">Play Sawtooth Vibrato 440Hz,5Hz</button>
+    <button onclick="playnote(squarewavenote_vibrato,440,5,1)">Play Squarewave Vibrato 440Hz,5Hz</button>
+    <button onclick="playnote(trianglenote_vibrato,440,5,1)">Play Triangle Vibrato 440Hz,5Hz</button>
+    <button onclick="playnote(squarewavenote_dutycyclevibrato,440,1)">Play Squarewave Duty Cycle Vibrato
+        440Hz,5Hz</button>
+    <button onclick="playnote(rcpulsenote_vibrato,440,5,1)">Play RC Oscillator Pulse Wave Vibrato 440Hz,5Hz</button>
+    <br><br>
+    FM/AM Synthesis:<br>
+    <button onclick="playnote(sinenote_fm,440,660,2,1)">Play Sinewave FM 440Hz,660Hz</button>
+    <button onclick="playnote(sinenote_fm_modfreqincrease,440,220,2,2.5,effect_amp_fadeinfadeout)">Play Sinewave FM
+        ModFreqIncrease, AmpFadeInFadeOut 440Hz, from 220Hz</button>
+    <button onclick="playnote(sinenote_am,440,220,1)">Play Sinewave AM 440Hz,220Hz</button>
+    <br><br>
+    DTMF:<br>
+    <button onclick="playnote(sinenote_dtmf,1209,697,0.25);">DTMF 1</button>
+    <button onclick="playnote(sinenote_dtmf,1336,697,0.25);">DTMF 2</button>
+    <button onclick="playnote(sinenote_dtmf,1477,697,0.25);">DTMF 3</button><br>
+    <button onclick="playnote(sinenote_dtmf,1209,770,0.25);">DTMF 4</button>
+    <button onclick="playnote(sinenote_dtmf,1336,770,0.25);">DTMF 5</button>
+    <button onclick="playnote(sinenote_dtmf,1477,770,0.25);">DTMF 6</button><br>
+    <button onclick="playnote(sinenote_dtmf,1209,852,0.25);">DTMF 7</button>
+    <button onclick="playnote(sinenote_dtmf,1336,852,0.25);">DTMF 8</button>
+    <button onclick="playnote(sinenote_dtmf,1477,852,0.25);">DTMF 9</button><br>
+    <button onclick="playnote(sinenote_dtmf,1209,941,0.25);">DTMF *</button>
+    <button onclick="playnote(sinenote_dtmf,1336,941,0.25);">DTMF 0</button>
+    <button onclick="playnote(sinenote_dtmf,1477,941,0.25);">DTMF #</button><br>
+</body>
+
+</html>

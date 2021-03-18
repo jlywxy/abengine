@@ -1,0 +1,11 @@
+【8bit/chiptune】天狗舞踏会 【东方】
+
+使用作者没事闲着写的 javascript 8bit乐器引擎 演奏==
+8bit乐器引擎是作者自己编写，名字叫ABEngine，运行在浏览器上，基于AudioContext API，目前还是个demo状态==
+现在的浏览器性能已经强到可以实时产生声音了==
+这个曲子里用到的音色包括脉冲和三角波==曲子并没有制作完整，而且有一些音色暂时没有开发出来，
+等到开发到(更加)正式的版本的时候，会考虑公布项目demo网址==
+
+乐谱是作者本人自行扒谱，同时参考了musescore的部分乐谱（https://musescore.com/scores/foxtail-grass-studio/tian-gou-wu-ta-hui-741956846598259）
+作者是个软工（其实是信安）学生hh，没有系统学过音乐==
+原曲：天狗舞踏会 - Foxtail-Grass Studio

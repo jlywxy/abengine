@@ -4,11 +4,15 @@
  * Author: jlywxy
  */
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const sampleRate = audioCtx.sampleRate
+//const sampleRate = audioCtx.sampleRate
+var sampleRate=audioCtx.sampleRate
 //inspired of: https://support.apple.com/zh-cn/guide/logicpro/lgsife419620/10.5/mac/10.14.6
 
 function allocateBuffer(durationSecond) {
     return new Float32Array(sampleRate * durationSecond)
+}
+function bit8Filter(frame){
+    return (((frame*0xffffffff)&0xf8000000))/0xffffffff
 }
 function playBuffer(buffer) {
     let arrbuf = audioCtx.createBuffer(1, buffer.length, sampleRate)
@@ -20,6 +24,25 @@ function playBuffer(buffer) {
     source.buffer = arrbuf;
     source.connect(audioCtx.destination);
     source.start()
+    return buf
+}
+function playBufferStereo(bufferL,bufferR) {
+    let arrbuf = audioCtx.createBuffer(2, bufferL.length, sampleRate)
+    let bufL = arrbuf.getChannelData(0);
+    for (let i = 0; i < bufL.length; i++) {
+        bufL[i] = bufferL[i]
+    }
+    let bufR = arrbuf.getChannelData(1);
+    for (let i = 0; i < bufR.length; i++) {
+        bufR[i] = bufferR[i]
+    }
+    let source = audioCtx.createBufferSource();
+    source.buffer = arrbuf;
+    source.connect(audioCtx.destination);
+    playCallback=()=>{
+        source.start()
+    }
+    return [bufL,bufR,playCallback]
 }
 //template
 function note_template(freq, duration, envelopeControl) {
@@ -64,6 +87,14 @@ function sinenote(freq, duration, envelopeControl) {
     let alc = allocateBuffer(duration)
     for (var i = 0; i < alc.length; i++) {
         alc[i] = sineWaveForm(i, freq, 0) * 0.5
+        if (envelopeControl) alc[i] = envelopeControl(i, alc.length, alc[i], alc)
+    }
+    return alc
+}
+function sinenote8(freq, duration, envelopeControl) {
+    let alc = allocateBuffer(duration)
+    for (var i = 0; i < alc.length; i++) {
+        alc[i] = bit8Filter(sineWaveForm(i, freq, 0) * 0.5)
         if (envelopeControl) alc[i] = envelopeControl(i, alc.length, alc[i], alc)
     }
     return alc

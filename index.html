@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- 
     abengine-demo
-    Version 1.3 (20210221)
+    Version 1.4 (20210531)
     Author: jlywxy
 -->
 <html lang="en">
@@ -9,14 +9,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ABEngine Demo Document</title>
+    <style>
+        #osc_block_rt {
+            position: relative;
+            height: 400px;
+            width: 500px;
+        }
+
+        #osc_block_en {
+            position: relative;
+            height: 150px;
+            width: 500px;
+        }
+
+        canvas {
+            position: absolute;
+        }
+    </style>
 </head>
 
 <body>
-    ABEngine 1.3(20210221) Demo<br>
-    作者：jlywxy<br>
-    <canvas id="canvas" width="500" height="200"></canvas><br>
-    <canvas id="canvas2" width="500" height="100"></canvas><br>
+    
+<div style="display:flex;">
+    <div id="oscilloscope">
+        ABEngine 1.4(20210531) Demo<br>
+        作者：jlywxy<br><br>
+        <div id="osc_block_rt">
+            <canvas id="canvas_rt_ui" width="500" height="400"></canvas>
+            <canvas id="canvas_rt_wav" width="500" height="400"></canvas>
+        </div>
+        <br>
+        <div id="osc_block_en">
+            <canvas id="canvas_entire_ui" width="500" height="150"></canvas>
+            <canvas id="canvas_entire_wav" width="500" height="150"></canvas>
+        </div>
+    </div>
+    <br>
+
+    <div style="margin:20px;">
     <script src="8bit.js"></script>
     <script src="8bit-sequence.js"></script>
     <script src="8bit-sheet.js"></script>
@@ -24,33 +55,23 @@
     <script>
         //reduce oscilloscope animation if browser is safari on macos
         var webkitsafari = (window.AudioContext == null)
-        if(webkitsafari)alert("use chrome for better performance. cannot show full animation on this browser.")
+        if (webkitsafari) alert("use chrome for better performance. cannot show full animation on this browser.")
 
-        oscilloscope_init(canvas[0])
-        oscilloscope_init(canvas[1])
+        oscilloscope_init(canvas_ui[0])
+        oscilloscope_init(canvas_ui[1])
+
     </script>
-    <button onclick="oscilloscope_init(canvas[0]);oscilloscope_init(canvas[1]);">清空示波器</button><br>
-    测试序列:<br>
-    <button onclick="play_sequence_4()">天狗舞踏会(foxtail-grass)</button><br><br><br>
-
-    <br><br><br>
-    <br><br><br>
-    
-
-
-
-
-
-
-
-
-
-
+    <br>
+    <input type="file" id="seq_file" />
+    <button onclick="play_sequence_file()">播放音频文件</button><br>
+    <br>
+    <button onclick="play_sequence_4()">天狗舞踏会(foxtail-grass)</button><br><br>
     <button onclick="play_sequence_1()">Play AirBus Seatbelt Sound (Remastered)</button><br>
     <button onclick="play_sequence_3()">Play Undertale Sans (Circulation)</button>
     <br><br>
     Tuning:<br>
     <button onclick="playnote(sinenote,440,1)">Play Sinewave 440Hz</button>
+    <button onclick="playnote(sinenote8,440,1)">Play Sinewave 440Hz (8b-bit)</button>
     <button onclick="playnote(trianglenote,440,1)">Play Triangle 440Hz</button>
     <button onclick="playnote(sawtoothnote,440,1)">Play Sawtooth 440Hz</button>
     <button onclick="playnote(squarewavenote,440,1)">Play Squarewave 440Hz</button>
@@ -84,6 +105,7 @@
     <button onclick="playnote(sinenote_dtmf,1209,941,0.25);">DTMF *</button>
     <button onclick="playnote(sinenote_dtmf,1336,941,0.25);">DTMF 0</button>
     <button onclick="playnote(sinenote_dtmf,1477,941,0.25);">DTMF #</button><br>
+</div></div>
 </body>
 
 </html>

@@ -3,117 +3,147 @@
  * Version 1.2 (20201109)
  * Author: jlywxy
  */
-var seq = '1 0 0.5 G5,C5,A4 0.5 G4 0.5 Gb5,C5,A4 0.5 0 1 0 0.5 0 0.5 A5,E5,C5,A4 0.5 G4 0.5 E4 0.5 0 0.5 A4,D4 0.5 C4 0.5 A4,D4 1 0 0.5 G5,D5,A4 0.5 C5 0.5 Gb5,D5,A4 0.5 0 1 0 0.5 0 0.5 A5,D5,A4 0.5 G5 0.5 Eb5 0.5 Eb5 0.5 D5 0.5 C5 1 0 0.5 G5,C5,A4 0.5 G4 0.5 Gb5,C5,A4 0.5 0 1 0 0.5 0 0.5 A5,E5,C5,A4 0.5 G4 0.5 E4 0.5 0 0.5 A4,D4 0.5 C4 0.5 A4,Bb4 1 0 0.5 G5,D5,A4 0.5 C5 0.5 Gb5,D5,A4 0.5 0 1 0 0.5 0 0.5 A5,D5,A4 0.5 G5 0.5 E5 0.5 D5 0.5 C5,C4 0.5 D4 0.5 E4 1 0 0.5 F5,C5,A4 0.5 G4 0.5 F5,C5,A4 0.5 0 1 0 0.5 D4 0.5 Ab5,E5,B4 0.5 Ab4 0.5 E4 0.5 E4 0.5 B3 0.25 E4 0.25 B3 0.5 D4 1 0 0.5 F4,A4,D5 0.5 C5 0.5 F4,A4,D5 0.5 D4 0.5 E4 0.5 Eb4 0.5 E4 0.5 B5 0.5 Ab5 0.5 E5 0.5 Ab4 0.5 B4,G5 0.5 G4,G5 0.5 B4,G5'
-var seq2 = '1 A2 0.5 0 0.5 A2 0.5 E2 0.5 G3 0.5 Ab3 1 A3,A2 0.5 0 0.5 A2 1 E2 1 G2 1 D3 0.5 0 0.5 D3 1 G2 0.5 E3 0.5 G3 1 D3,A3 0.5 0 0.5 D3 1 A2 0.5 C3 0.5 D3 1 A3,A2 0.5 0 0.5 A2 1 E2 0.5 G3 0.5 Ab3 1 A3,A2 0.5 0 0.5 A2 1 E2 1 G2 1 D4,D3 0.5 0 0.5 D3 1 A2 0.5 E3 0.5 G3 1 D3,A3 0.5 0 0.5 D3 1 A2 1 C3 1 F4,F3 0.5 0 0.5 F3 1 C3 0.5 G3 0.5 Ab3 1 E4,E3 0.5 0 0.5 E3 1 B2 1 D3 1 A3,F3 0.5 0 0.5 F3 2 C3 1.5 B2,B3 0.5 B2 0.5 E2 0.5 Gb2 1 Ab2'
+var seq = '1 0 0.5 G5,C5,A4 0.5 G4 0.5 Gb5,C5,A4 0.5 0 1 0 0.5 0 0.5 A5,E5,C5,A4 0.5 G4 0.5 E4 0.5 0 0.5 A4,D4 0.5 C4 0.5 A4,D4 1 0 0.5 G5,D5,A4 0.5 C5 0.5 Gb5,D5,A4 0.5 0 1 0 0.5 0 0.5 A5,D5,A4 0.5 G5 0.5 Eb5 0.5 Eb5 0.5 D5 0.5 C5 0.5 0 1 0 0.5 G5,C5,A4 0.5 G4 0.5 Gb5,C5,A4 0.5 0 1 0 0.5 0 0.5 A5,E5,C5,A4 0.5 G4 0.5 E4 0.5 0 0.5 A4,D4 0.5 C4 0.5 A4,Bb4 1 0 0.5 G5,D5,A4 0.5 C5 0.5 Gb5,D5,A4 0.5 0 1 0 0.5 0 0.5 A5,D5,A4 0.5 G5 0.5 E5 0.5 D5 0.5 C5,C4 0.5 D4 0.5 E4 1 0 0.5 F5,C5,A4 0.5 G4 0.5 F5,C5,A4 0.5 0 1 0 0.5 D4 0.5 Ab5,E5,B4 0.5 Ab4 0.5 E4 0.5 E4 0.5 B3 0.25 E4 0.25 B3 0.5 D4 1 0 0.5 F4,A4,D5 0.5 C5 0.5 F4,A4,D5 0.5 D4 0.5 E4 0.5 Eb4 0.5 E4 0.5 B5 0.5 Ab5 0.5 E5 0.5 Ab4 0.5 B4,G5 0.5 G4,G5 0.5 B4,G5'
+var seq2 = '1 A2 0.5 0 0.5 A2 1 E2 0.5 G3 0.5 Ab3 1 A3,A2 0.5 0 0.5 A2 1 E2 1 G2 1 D3 0.5 0 0.5 D3 1 G2 0.5 E3 0.5 G3 1 D3,A3 0.5 0 0.5 D3 1 A2 0.5 C3 0.5 D3 1 A3,A2 0.5 0 0.5 A2 1 E2 0.5 G3 0.5 Ab3 1 A3,A2 0.5 0 0.5 A2 1 E2 1 G2 1 D4,D3 0.5 0 0.5 D3 1 A2 0.5 E3 0.5 G3 1 D3,A3 0.5 0 0.5 D3 1 A2 1 C3 1 F4,F3 0.5 0 0.5 F3 1 C3 0.5 G3 0.5 Ab3 1 E4,E3 0.5 0 0.5 E3 1 B2 1 D3 1 A3,F3 0.5 0 0.5 F3 2 C3 1.5 B2,B3 0.5 B2 0.5 E2 0.5 Gb2 1 Ab2'
 
 
 
-var seq3='1 B5 0.5 E5 0.5 Fs5 0.5 G5 0.5 B5 1 A5 1 D5 1 A5 1 G5 0.5 Fs5 0.5 G5 0.5 Fs5 0.5 D5 1 B4 2 E5 ' +
-'1 B5 0.5 G5 0.5 A5 0.5 B5 0.5 D6 1 Db6 1 A5 0.5 A5 0.5 B5 0.5 G5 0.5 Fs5 1 D5 1 Fs5 2.5 E5'
-var seq4='1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 1 E3 1 0 1 B2 1 E2 2 0 '+
-'1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 3.5 E3'
-var seq5='1 0 1 E4 1 E4 1 0 1 D4 1 D4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 3.5 B4 1 0 '+
-'1.5 0 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 3.5 B4'
-var seq6='1.5 0 0.5 G4 0.5 A4 1 B4 0.5 E4 0.5 Fs4 0.5 G4 0.5 B4 1 A4 1 D4 1 A4 1 G4 0.5 Fs4 0.5 G4 0.5 Fs4 0.5 D4 1 B3 2 E4 1 B4 '+
-'0.5 G4 0.5 A4 0.5 B4 0.5 D5 1 Cs5 1 A4 0.5 A4 0.5 B4 0.5 G4 0.5 Fs4 1 D4 1 Fs4 2.5 E4'
+var seq3 = '1 B5 0.5 E5 0.5 Fs5 0.5 G5 0.5 B5 1 A5 1 D5 1 A5 1 G5 0.5 Fs5 0.5 G5 0.5 Fs5 0.5 D5 1 B4 2 E5 ' +
+    '1 B5 0.5 G5 0.5 A5 0.5 B5 0.5 D6 1 Db6 1 A5 0.5 A5 0.5 B5 0.5 G5 0.5 Fs5 1 D5 1 Fs5 2.5 E5'
+var seq4 = '1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 1 E3 1 0 1 B2 1 E2 2 0 ' +
+    '1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 3.5 E3'
+var seq5 = '1 0 1 E4 1 E4 1 0 1 D4 1 D4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 3.5 B4 1 0 ' +
+    '1.5 0 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 3.5 B4'
+var seq6 = '1.5 0 0.5 G4 0.5 A4 1 B4 0.5 E4 0.5 Fs4 0.5 G4 0.5 B4 1 A4 1 D4 1 A4 1 G4 0.5 Fs4 0.5 G4 0.5 Fs4 0.5 D4 1 B3 2 E4 1 B4 ' +
+    '0.5 G4 0.5 A4 0.5 B4 0.5 D5 1 Cs5 1 A4 0.5 A4 0.5 B4 0.5 G4 0.5 Fs4 1 D4 1 Fs4 2.5 E4'
 function play_sequence_3() {
-    a = synthesis2(seq, rcpulsenote, 0.1, effect_amp_antispike, -13, 0.5, 0.48); //main high
-    a3 = synthesis2(seq, rcpulsenote, 0.05, effect_amp_antispike, -13, 0.5, 0.48); //echo
-    a2 = synthesis2(seq, rcpulsenote, 0.01, effect_amp_antispike, -25, 0.7, 0.48);//bass
-    b = synthesis2(seq2, trianglenote, 0.5, effect_amp_antispike, -13, 0.9, 0.48); //main low
-    b2 = synthesis2(seq2, sawtoothnote, 0.5, effect_amp_antispike, -1, 0.9, 0.48); //advanced low
+    a = synthesis2(seq, rcpulsenote, 0.4, effect_amp_antispike, -13, 0.38, 0.47); //main high
+    a3 = synthesis2(seq, rcpulsenote, 0.2, effect_amp_antispike, -13, 0.5, 0.47); //echo
+    a2 = synthesis2(seq, rcpulsenote, 0.1, effect_amp_antispike, -25, 0.5, 0.47);//bass
+    b = synthesis2(seq2, trianglenote, 0.7, effect_amp_antispike, -13, 0.9, 0.47); //main low
+    b2 = synthesis2(seq2, sawtoothnote, 0.35, effect_amp_antispike, -1, 0.9, 0.47); //advanced low
     c = new Float32Array(a.length);
     for (i = 0; i < c.length; i++) {
         c[i] = a[i] + a2[i] + a3[i] + b[i] + b2[i]
     };
-    let f=()=>displayBuffer(c,f);
+    let f = () => displayBuffer(c, f);
     f()
 }
 function playnote(func, ...args) {
     alc = func(...args)
     displayBuffer(alc)
 }
-let p=(v)=>v?v:0
-function merge(a,b){
-    let l=a.length+b.length
-    let c=new Float32Array(l)
-    for(let i=0;i<l;i++){
-        if(i<a.length){
-            c[i]=p(a[i])
-        }else{
-            c[i]=p(b[i-a.length])
-        }   
+let p = (v) => v ? v : 0
+function merge(a, b) {
+    let l = a.length + b.length
+    let c = new Float32Array(l)
+    for (let i = 0; i < l; i++) {
+        if (i < a.length) {
+            c[i] = p(a[i])
+        } else {
+            c[i] = p(b[i - a.length])
+        }
     }
     return c
 }
-function remix(...a){
-    let maxl=0
-    for(let i=0;i<a.length;i++){
-        if(a[i].length>maxl){
-            maxl=a[i].length
+function remix(...a) {
+    let maxl = 0
+    for (let i = 0; i < a.length; i++) {
+        if (a[i].length > maxl) {
+            maxl = a[i].length
         }
     }
-    let b=new Float32Array(maxl)
-    for(let i=0;i<maxl;i++){
-        for(let j of a){
-            b[i]+=p(j[i])
+    let b = new Float32Array(maxl)
+    for (let i = 0; i < maxl; i++) {
+        for (let j of a) {
+            b[i] += p(j[i])
         }
     }
     return b
 }
-function echo(a){
-    let b=new Float32Array(a.length)
-    for(let i=0;i<a.length;i++){
-        b[i]=a[i]+p(a[i-3000])*0.4+p(a[i-3000*2])*0.4/2+p(a[i-3000*3])*0.4/4+p(a[i-3000*4])*0.4/8
+function echo(a) {
+    let b = new Float32Array(a.length)
+    for (let i = 0; i < a.length; i++) {
+        b[i] = a[i] + p(a[i - 3000]) * 0.4 + p(a[i - 3000 * 2]) * 0.4 / 2 + p(a[i - 3000 * 3]) * 0.4 / 4 + p(a[i - 3000 * 4]) * 0.4 / 8
     }
     return b
 }
 function play_sequence_1() {
-let c = synthesis2("2 D5 2 B4", sinenote, 1, effect_amp_fullfadeout, 0, 1)
+    let c = synthesis2("2 D5 2 B4", sinenote, 1, effect_amp_fullfadeout, 0, 1)
     displayBuffer(c)
 }
 
-var seq3='1 B5 0.5 E5 0.5 Fs5 0.5 G5 0.5 B5 1 A5 1 D5 1 A5 1 G5 0.5 Fs5 0.5 G5 0.5 Fs5 0.5 D5 1 B4 2 E5 ' +
-'1 B5 0.5 G5 0.5 A5 0.5 B5 0.5 D6 1 Db6 1 A5 0.5 A5 0.5 B5 0.5 G5 0.5 Fs5 1 D5 1 Fs5 2.5 E5'
-var seq4='1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 1 E3 1 0 1 B2 1 E2 1 0'
-var seq5='1 0 1 E4 1 E4 1 0 1 D4 1 D4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 3.5 B4 1 0'
+var seq3 = '1 B5 0.5 E5 0.5 Fs5 0.5 G5 0.5 B5 1 A5 1 D5 1 A5 1 G5 0.5 Fs5 0.5 G5 0.5 Fs5 0.5 D5 1 B4 2 E5 ' +
+    '1 B5 0.5 G5 0.5 A5 0.5 B5 0.5 D6 1 Db6 1 A5 0.5 A5 0.5 B5 0.5 G5 0.5 Fs5 1 D5 1 Fs5 2.5 E5'
+var seq4 = '1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 1 E3 1 0 1 B2 1 E2 1 0'
+var seq5 = '1 0 1 E4 1 E4 1 0 1 D4 1 D4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 3.5 B4 1 0'
 
-var seq6='0.5 G4 0.5 A4 1 B4 0.5 E4 0.5 Fs4 0.5 G4 0.5 B4 1 A4 1 D4 1 A4 1 G4 0.5 Fs4 0.5 G4 0.5 Fs4 0.5 D4 1 B3 2 E4 1 B4 '+'0.5 G4 0.5 A4 0.5 B4 0.5 D5 1 Cs5 1 A4 0.5 A4 0.5 B4 0.5 G4 0.5 Fs4 1 D4 1 Fs4 2 E4 1 0'
-var seq4x='1 0 1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 2 E3'
-var seq5x='1 0 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 1 B4 2 E3'
+var seq6 = '0.5 G4 0.5 A4 1 B4 0.5 E4 0.5 Fs4 0.5 G4 0.5 B4 1 A4 1 D4 1 A4 1 G4 0.5 Fs4 0.5 G4 0.5 Fs4 0.5 D4 1 B3 2 E4 1 B4 ' + '0.5 G4 0.5 A4 0.5 B4 0.5 D5 1 Cs5 1 A4 0.5 A4 0.5 B4 0.5 G4 0.5 Fs4 1 D4 1 Fs4 2 E4 1 0'
+var seq4x = '1 0 1.5 E3 1.5 0 1.5 D3 1.5 0 1.5 C3 1.5 0 1.5 B2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 0.5 0 1 D3 2 E3'
+var seq5x = '1 0 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 E4 1 G4 1 0 1 D4 1 Fs4 1 0 1 C4 1 E4 1 0 1 D4 1 Fs4 1 0 1 G4 1 A4 1 B4 2 E3'
 
-var seq4x2='1.5 C3 1.5 0 1.5 D3 1.5 0 1.5 E3 1.5 0 1.5 G3 1.5 0 1.5 C3 1.5 0 1.5 D3 1.5 0 1.5 E3 1.5 0 1.5 E2 1.5 0 1.5 C3 1.5 0 1.5 D3 1.5 0 1.5 E3 1.5 0 1.5 G2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 1.5 0'
-var seq7='1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 1 E5 1 B5 1 0 1 E5 1 B5 1 0 1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 2.5 E5 3 0 0.5 0 1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 1 E5 1 B5 1 0 1 E5 1 B5 1 0 1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 2.5 E5'
-var seq8='1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 G2 1 E4,G4 1 E4,G4 1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 E2 1 E4,G4 1 E4,G4'+' 1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 G2 1 E4,G4 1 E4,G4 1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 E2'
+var seq4x2 = '1.5 C3 1.5 0 1.5 D3 1.5 0 1.5 E3 1.5 0 1.5 G3 1.5 0 1.5 C3 1.5 0 1.5 D3 1.5 0 1.5 E3 1.5 0 1.5 E2 1.5 0 1.5 C3 1.5 0 1.5 D3 1.5 0 1.5 E3 1.5 0 1.5 G2 1.5 0 1.5 A2 1.5 0 1.5 B2 1.5 0 1.5 C3 1.5 0'
+var seq7 = '1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 1 E5 1 B5 1 0 1 E5 1 B5 1 0 1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 2.5 E5 3 0 0.5 0 1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 1 E5 1 B5 1 0 1 E5 1 B5 1 0 1 E5 2 B5 0.5 A5 0.5 B5 0.5 D6 0.5 A5 0.5 Fs5 0.5 D5 2.5 E5'
+var seq8 = '1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 G2 1 E4,G4 1 E4,G4 1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 E2 1 E4,G4 1 E4,G4' + ' 1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 G2 1 E4,G4 1 E4,G4 1 C3 1 E4,G4 1 E4,G4 1 D3 1 D4,Fs4 1 D4,Fs4 1 E3 1 E4,G4 1 E4,G4 1 E2'
 
-var seq9='0.5 C6 0.5 Cs6 0.5 D6 0.5 Ds6 0.5 E6 0.5 F6 0.5 Fs6 0.5 G6'
+var seq9 = '0.5 C6 0.5 Cs6 0.5 D6 0.5 Ds6 0.5 E6 0.5 F6 0.5 Fs6 0.5 G6'
+
+function play_sequence_file() {
+    // https://jsfiddle.net/NicDoesCode/fz7cn004/
+
+
+    var file = document.getElementById("seq_file")
+    if (file.files.length > 0) {
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+            var filebuf = reader.result;
+            audioCtx.decodeAudioData(filebuf, function (aubuf) {
+                displayBufferStereo(aubuf.getChannelData(0), aubuf.getChannelData(1), () => { })
+            });
+        }
+        reader.readAsArrayBuffer(file.files[0]);
+    }
+
+
+    // let bl=new Float32Array(pcm_data.l.length)
+    // for(let i=0;i<bl.length;i++){
+    //     bl[i]=(pcm_data.l[i])/65535*2
+    // }
+    // let br=new Float32Array(pcm_data.r.length)
+    // for(let i=0;i<br.length;i++){
+    //     br[i]=(pcm_data.r[i])/65535*2
+    // }
+    //playBufferStereo(bl,br)
+
+
+}
 function play_sequence_4() {
 
-    let oamp=5
-    let c1 = synthesis2(seq3, rcpulsenote, 0.2*oamp, effect_amp_note2, 0, 1.4,0.41)
-    let c1x = synthesis2(seq3, rcpulsenote, 0.05*oamp, effect_amp_note2, +12, 1.4,0.41)
-    let c2 = synthesis2(seq4, rcpulsenote, 0.14*oamp, effect_amp_note2, 0, 2.3,0.41)
-    let c3 = synthesis2(seq5, rcpulsenote, 0.12*oamp, effect_amp_note2, 0, 1.5,0.41)
+    let oamp = 5
+    let c1 = synthesis2(seq3, rcpulsenote, 0.2 * oamp, effect_amp_note2, 0, 1.4, 0.41)
+    let c1x = synthesis2(seq3, rcpulsenote, 0.05 * oamp, effect_amp_note2, +12, 1.4, 0.41)
+    let c2 = synthesis2(seq4, rcpulsenote, 0.14 * oamp, effect_amp_note2, 0, 2.3, 0.41)
+    let c3 = synthesis2(seq5, rcpulsenote, 0.12 * oamp, effect_amp_note2, 0, 1.5, 0.41)
 
-    let p1=remix(c1,c1x,c2,c3)
+    let p1 = remix(c1, c1x, c2, c3)
 
-    let c2x=synthesis2(seq4x, rcpulsenote, 0.12*oamp, effect_amp_note2, 0, 2.3,0.41)
-    let c3x = synthesis2(seq5x, rcpulsenote, 0.15*oamp, effect_amp_note2, 0, 1.5,0.41)
+    let c2x = synthesis2(seq4x, rcpulsenote, 0.12 * oamp, effect_amp_note2, 0, 2.3, 0.41)
+    let c3x = synthesis2(seq5x, rcpulsenote, 0.15 * oamp, effect_amp_note2, 0, 1.5, 0.41)
 
-    let c4 = synthesis2(seq6, trianglenote, 0.5*oamp, effect_amp_fadeinfadeout, 0, 1.2,0.41)
+    let c4 = synthesis2(seq6, trianglenote, 0.5 * oamp, effect_amp_fadeinfadeout, 0, 1.2, 0.41)
 
-    let p2=remix(c2x,c3x,c4)
+    let p2 = remix(c2x, c3x, c4)
 
-    let c6=synthesis2(seq7, rcpulsenote, 0.2*oamp, effect_amp_note2, 0, 1.4,0.41)
-    let c7=synthesis2(seq8, rcpulsenote, 0.15*oamp, effect_amp_fullfadeout, 0, 0.5,0.41)
-    let c8 = synthesis2(seq4x2, rcpulsenote, 0.08*oamp, effect_amp_note2, 0, 2,0.41)
+    let c6 = synthesis2(seq7, rcpulsenote, 0.2 * oamp, effect_amp_note2, 0, 1.4, 0.41)
+    let c7 = synthesis2(seq8, rcpulsenote, 0.15 * oamp, effect_amp_fullfadeout, 0, 0.5, 0.41)
+    let c8 = synthesis2(seq4x2, rcpulsenote, 0.08 * oamp, effect_amp_note2, 0, 2, 0.41)
 
-    let p3=remix(c6,c7,c8)
+    let p3 = remix(c6, c7, c8)
 
-    let w=merge(merge(p1,p2),p3)
+    let w = merge(merge(p1, p2), p3)
     displayBuffer(w)
 
-    
+
 }
 // function play_sequence_2() {
 //     playsequence(
@@ -124,7 +154,7 @@ function play_sequence_4() {
 var BPM = 120
 var quarterNoteDuration = 120 / 60 //second
 
-function synthesis2(sequence, instrument, gain, envelopeFunc, tone, noteduration, compress) {
+function synthesis2(sequence, instrument, gain, envelopeFunc, tune, noteduration, compress) {
     let max_length = 0
     compress = compress ? compress : 0.5
     let seqarr = sequence.split(" ")
@@ -135,19 +165,22 @@ function synthesis2(sequence, instrument, gain, envelopeFunc, tone, noteduration
     let framePointer = 0
     for (let k = 0; k < seqarr.length; k += 2) {
         let duration = seqarr[k] * compress
+
         if (seqarr[k + 1] == "0") {
-            framePointer += duration * sampleRate
+            framePointer += Math.ceil(duration * sampleRate)
             continue;
         }
         let notearr = seqarr[k + 1].split(",")
         for (let j = 0; j < notearr.length; j++) {
-            if(notearr[j]==0)continue;
-            let notebuf = instrument(n2f(transformTone(notearr[j], tone)), duration * noteduration, envelopeFunc ? envelopeFunc : null)
-            for (let l = framePointer; l < framePointer + notebuf.length; l++) {
-                buf[l] += notebuf[l - framePointer] * (gain ? gain : 1)
+            if (notearr[j] == 0) continue;
+            let notebuf = instrument(n2f(transformTune(notearr[j], tune)), duration * noteduration, envelopeFunc ? envelopeFunc : null)
+
+            for (let l = framePointer; l < Math.ceil(framePointer + notebuf.length); l++) {
+                buf[l] += notebuf[l - framePointer] * (gain ? gain : 1)/(j/2+1)
             }
         }
-        framePointer += duration * sampleRate
+        framePointer += Math.ceil(duration * sampleRate)
+
     }
     console.log("音轨合成完成")
     return buf

@@ -37,7 +37,8 @@ nameuniform={
     "As": "Bb",
 }
 noteTransformMap = [["C", "Bb", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"], ["B", "Bb", "A", "Ab", "G", "Gb", "F", "E", "Eb", "D", "Db", "C"]]
-function transformTone(note, by) {
+
+function transformTune(note, by) {
     let map = by > 0 ? noteTransformMap[0] : noteTransformMap[1]
     if (by == 0) return note
     else {
@@ -68,7 +69,7 @@ function s2n(sheetnote, low) {
         let noteindex = parseInt(sheetnote.substr(1))
         newnote = (!low) ? highmap[noteindex + mapoffset] : lowmap[noteindex + mapoffset]
     }
-    return transformTone(newnote, trans)
+    return transformTune(newnote, trans)
 }
 function sheet2sequence(sheet, lowsheet) {
     sheet = sheet.replace(/\|\n/g, " ")
